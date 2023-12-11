@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq55eg58xq3yy"]
+
+[ext_resource type="Texture2D" uid="uid://bv4xhw3og61p3" path="res://icon.png" id="1_l3fpa"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(38, 42)
+
+[node name="GDExample" type="GDExample" parent="."]
+amplitude = 20.0
+speed = 3.0
+texture = ExtResource("1_l3fpa")

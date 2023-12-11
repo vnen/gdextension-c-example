@@ -1,0 +1,19 @@
+# IDE Files
+/.vscode
+
+# Build artifacts
+*.o
+*.so
+*.os
+*.a
+*.lib
+*.dll
+*.dylib
+/demo/bin
+/.sconsign.dblite
+
+# Godot files
+.godot
+
+# OS files
+.DS_Store
