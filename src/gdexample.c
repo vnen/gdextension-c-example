@@ -118,31 +118,22 @@ void gdexample_free_instance(void *p_class_userdata, GDExtensionClassInstancePtr
     api.mem_free(self);
 }
 
-void gdexample_process_virtual(GDExtensionClassInstancePtr p_instance, const GDExtensionConstTypePtr *p_args, GDExtensionTypePtr r_ret)
+void *gdexample_get_virtual_with_data(void *p_class_userdata, GDExtensionConstStringNamePtr p_name)
 {
-    ptrcall_1_float_arg_no_ret(gdexample_process, p_instance, p_args, r_ret);
+    // If it is the "_process" method, return a pointer to the gdexample_process function.
+    if (is_string_name_equal(p_name, "_process"))
+    {
+        return (void *)gdexample_process;
+    }
+    // Otherwise, return NULL.
+    return NULL;
 }
 
-GDExtensionClassCallVirtual gdexample_get_virtual(void *p_class_userdata, GDExtensionConstStringNamePtr p_name)
+void gdexample_call_virtual_with_data(GDExtensionClassInstancePtr p_instance, GDExtensionConstStringNamePtr p_name, void *p_virtual_call_userdata, const GDExtensionConstTypePtr *p_args, GDExtensionTypePtr r_ret)
 {
-    // Create a StringName for the virtual method name.
-    StringName method_name;
-    constructors.string_name_new_with_utf8_chars(&method_name, "_process");
-
-    // Compare the virtual method name with the given method name.
-    bool is_process = false;
-    operators.string_name_equal(p_name, &method_name, &is_process);
-
-    destructors.string_name_destructor(&method_name);
-
-    if (is_process)
+    // If it is the "_process" method, call it with a helper.
+    if (is_string_name_equal(p_name, "_process"))
     {
-        // If it matches, return a function that calls the virtual method.
-        return gdexample_process_virtual;
-    }
-    else
-    {
-        // Otherwise, return NULL.
-        return NULL;
+        ptrcall_1_float_arg_no_ret(p_virtual_call_userdata, p_instance, p_args, r_ret);
     }
 }

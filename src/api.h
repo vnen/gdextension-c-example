@@ -64,6 +64,10 @@ struct API
 // The methods here are tailored for this specific example and aren't meant
 // for general usage, but they show how to use the API.
 
+// Compare a StringName with a C string.
+bool is_string_name_equal(GDExtensionConstStringNamePtr p_a, const char *p_b);
+
+// Create a PropertyInfo struct.
 GDExtensionPropertyInfo make_property(
     GDExtensionVariantType type,
     const char *name);

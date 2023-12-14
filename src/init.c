@@ -11,7 +11,7 @@ void initialize_gdexample_module(void *p_userdata, GDExtensionInitializationLeve
     }
 
     // Get ClassDB methods here because the classes are all properly registered.
-    // Check extension_api.json for hashes.
+    // See extension_api.json for hashes.
     StringName native_class_name;
     StringName method_name;
 
@@ -51,9 +51,9 @@ void initialize_gdexample_module(void *p_userdata, GDExtensionInitializationLeve
         .create_instance_func = gdexample_create_instance,
         .free_instance_func = gdexample_free_instance,
         .recreate_instance_func = NULL,
-        .get_virtual_func = gdexample_get_virtual,
-        .get_virtual_call_data_func = NULL,
-        .call_virtual_with_data_func = NULL,
+        .get_virtual_func = NULL,
+        .get_virtual_call_data_func = gdexample_get_virtual_with_data,
+        .call_virtual_with_data_func = gdexample_call_virtual_with_data,
         .get_rid_func = NULL,
         .class_userdata = NULL,
     };

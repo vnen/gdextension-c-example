@@ -30,6 +30,23 @@ GDExtensionPropertyInfo make_property_full(
     return info;
 }
 
+bool is_string_name_equal(GDExtensionConstStringNamePtr p_a, const char *p_b)
+{
+    // Create a StringName for the C string.
+    StringName string_name;
+    constructors.string_name_new_with_utf8_chars(&string_name, p_b);
+
+    // Compare both StringNames.
+    bool is_equal = false;
+    operators.string_name_equal(p_a, &string_name, &is_equal);
+
+    // Destroy the created StringName.
+    destructors.string_name_destructor(&string_name);
+
+    // Return the result.
+    return is_equal;
+}
+
 GDExtensionPropertyInfo make_property(
     GDExtensionVariantType type,
     const char *name)

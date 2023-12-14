@@ -38,7 +38,7 @@ void gdexample_bind_methods();
 // Bindings.
 GDExtensionObjectPtr gdexample_create_instance(void *p_class_userdata);
 void gdexample_free_instance(void *p_class_userdata, GDExtensionClassInstancePtr p_instance);
-void gdexample_process_virtual(GDExtensionClassInstancePtr p_instance, const GDExtensionConstTypePtr *p_args, GDExtensionTypePtr r_ret);
-GDExtensionClassCallVirtual gdexample_get_virtual(void *p_class_userdata, GDExtensionConstStringNamePtr p_name);
+void *gdexample_get_virtual_with_data(void *p_class_userdata, GDExtensionConstStringNamePtr p_name);
+void gdexample_call_virtual_with_data(GDExtensionClassInstancePtr p_instance, GDExtensionConstStringNamePtr p_name, void *p_virtual_call_userdata, const GDExtensionConstTypePtr *p_args, GDExtensionTypePtr r_ret);
 
 #endif // GDEXAMPLE_H
