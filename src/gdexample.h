@@ -33,9 +33,9 @@ double gdexample_get_speed(const GDExample *self);
 
 // Methods.
 void gdexample_process(GDExample *self, double delta);
-void gdexample_bind_methods();
 
 // Bindings.
+void gdexample_bind_methods();
 GDExtensionObjectPtr gdexample_create_instance(void *p_class_userdata);
 void gdexample_free_instance(void *p_class_userdata, GDExtensionClassInstancePtr p_instance);
 void *gdexample_get_virtual_with_data(void *p_class_userdata, GDExtensionConstStringNamePtr p_name);

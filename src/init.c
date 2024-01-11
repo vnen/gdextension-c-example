@@ -10,7 +10,7 @@ void initialize_gdexample_module(void *p_userdata, GDExtensionInitializationLeve
         return;
     }
 
-    // Get ClassDB methods here because the classes are all properly registered.
+    // Get ClassDB methods here because the classes we need are all properly registered now.
     // See extension_api.json for hashes.
     StringName native_class_name;
     StringName method_name;

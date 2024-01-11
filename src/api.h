@@ -46,18 +46,20 @@ struct Methods
 
 struct API
 {
-    GDExtensionInterfaceClassdbGetMethodBind classdb_get_method_bind;
     GDExtensionInterfaceObjectMethodBindCall object_method_bind_call;
-    GDExtensionInterfaceObjectMethodBindPtrcall object_method_bind_ptrcall;
     GDExtensionInterfaceClassdbRegisterExtensionClass2 classdb_register_extension_class2;
-    GDExtensionInterfaceClassdbRegisterExtensionClassProperty classdb_register_extension_class_property;
-    GDExtensionInterfaceClassdbRegisterExtensionClassMethod classdb_register_extension_class_method;
     GDExtensionInterfaceClassdbConstructObject classdb_construct_object;
     GDExtensionInterfaceObjectSetInstance object_set_instance;
-    GDExtensionInterfaceGetVariantFromTypeConstructor get_variant_from_type_constructor;
-    GDExtensionInterfaceGetVariantToTypeConstructor get_variant_to_type_constructor;
     GDExtensionInterfaceMemAlloc mem_alloc;
     GDExtensionInterfaceMemFree mem_free;
+    GDExtensionInterfaceGetVariantFromTypeConstructor get_variant_from_type_constructor;
+    GDExtensionInterfaceGetVariantToTypeConstructor get_variant_to_type_constructor;
+    GDExtensionInterfaceVariantGetType variant_get_type;
+    GDExtensionInterfaceClassdbRegisterExtensionClassMethod classdb_register_extension_class_method;
+    GDExtensionInterfaceClassdbRegisterExtensionClassProperty classdb_register_extension_class_property;
+    GDExtensionInterfaceClassdbGetMethodBind classdb_get_method_bind;
+    GDExtensionInterfaceObjectMethodBindPtrcall object_method_bind_ptrcall;
+    GDExtensionInterfaceClassdbRegisterExtensionClassSignal classdb_register_extension_class_signal;
 } api;
 
 // Helpers.
@@ -109,6 +111,13 @@ void bind_property(
     GDExtensionVariantType type,
     const char *getter,
     const char *setter);
+
+// Version for 1 argument.
+void bind_signal_1(
+    const char *class_name,
+    const char *signal_name,
+    const char *arg1_name,
+    GDExtensionVariantType arg1_type);
 
 // Helpers for calling functions.
 void call_0_args_no_ret(void *method_userdata, GDExtensionClassInstancePtr p_instance, const GDExtensionConstVariantPtr *p_args, GDExtensionInt p_argument_count, GDExtensionVariantPtr r_return, GDExtensionCallError *r_error);
