@@ -15,7 +15,7 @@ extern GDExtensionClassLibraryPtr class_library;
 
 // API methods.
 
-struct Constructors
+extern struct Constructors
 {
     GDExtensionPtrConstructor vector2_constructor_x_y;
     GDExtensionInterfaceStringNewWithUtf8Chars string_new_with_utf8_chars;
@@ -26,25 +26,25 @@ struct Constructors
     GDExtensionVariantFromTypeConstructorFunc variant_from_vector2_constructor;
 } constructors;
 
-struct Destructors
+extern struct Destructors
 {
     GDExtensionPtrDestructor string_destructor;
     GDExtensionPtrDestructor string_name_destructor;
     GDExtensionInterfaceVariantDestroy variant_destroy;
 } destructors;
 
-struct Operators
+extern struct Operators
 {
     GDExtensionPtrOperatorEvaluator string_name_equal;
 } operators;
 
-struct Methods
+extern struct Methods
 {
     GDExtensionMethodBindPtr object_emit_signal;
     GDExtensionMethodBindPtr node2d_set_position;
 } methods;
 
-struct API
+extern struct API
 {
     GDExtensionInterfaceObjectMethodBindCall object_method_bind_call;
     GDExtensionInterfaceClassdbRegisterExtensionClass2 classdb_register_extension_class2;

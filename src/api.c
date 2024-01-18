@@ -2,6 +2,12 @@
 
 GDExtensionClassLibraryPtr class_library = NULL;
 
+struct Constructors constructors;
+struct Destructors destructors;
+struct Operators operators;
+struct Methods methods;
+struct API api;
+
 GDExtensionPropertyInfo make_property_full(
     GDExtensionVariantType type,
     const char *name,
